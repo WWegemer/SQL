@@ -1,3 +1,4 @@
+-- SCHEMA SQL --
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
     item_name TEXT,
@@ -27,3 +28,30 @@ VALUES
     
     
 -- © Copyright 2025 Break Into Tech  --
+
+
+
+-- QUERY SQL --
+-- Query showing all items worth $50 or more, ordered by price --
+SELECT *
+FROM superstore
+WHERE price >= 50
+ORDER BY price
+;
+
+-- Query that lists the number of items and the average price of all itmes --
+SELECT COUNT(item_name), AVG(price)
+FROM superstore
+;
+
+-- Total # of items sold in Kitchen Supplies category, SUM of items sold. --
+SELECT "Kitchen Supplies", COUNT(item_name),SUM(price)
+FROM superstore
+;
+
+-- Query showing 5 items with the least inventory --
+SELECT item_name, stock_quantity
+FROM superstore
+ORDER BY stock_quantity ASC
+LIMIT 5
+;
